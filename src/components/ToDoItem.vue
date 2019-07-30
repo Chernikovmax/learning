@@ -7,7 +7,7 @@
         :id="'check-' + todo.id"
         @change="todo.completed = !todo.completed"
       />
-      <label :for="'check-' + todo.id">{{todo.title}}</label>
+      <label :for="'check-' + todo.id">{{todo.title | upperCase}}</label>
     </span>
     <button 
       class="todo__task-btn" 
@@ -26,6 +26,13 @@ export default {
       required: true
     }
   },
+  filters: {
+    upperCase(text) {
+      if (text.trim()) {
+        return text.toUpperCase();
+      }
+    }
+  }
 };
 
 
