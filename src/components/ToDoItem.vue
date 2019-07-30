@@ -35,12 +35,13 @@ export default {
 .todo__task {
   width: 500px;
   list-style-type: none;
-  border: 1px solid #ccc;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 3px 0 5px 0 gray;
 }
 
 .todo__task-text {

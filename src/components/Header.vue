@@ -80,16 +80,16 @@ function selectMenuItem(event) {
     font-weight: 600;
     height: 100%;
     padding: 15px 10px;
-    background-color: #9eb927;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    transition: all .3s ease;
 }
 
 .main-menu__item:hover {
     background-color: #c8db76;
+    box-shadow: 2px 0 3px 0 gray;
 }
 
 .active {
     background-color: #c8db76;
+    box-shadow: 2px 0 3px 0 gray;
 }
 </style>

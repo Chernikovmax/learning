@@ -47,15 +47,13 @@ function onSubmit() {
   width: 100vw;
   max-width: 100%;
 }
-textarea {
-  resize: none;
-}
 
 input {
   width: 700px;
   padding-left: 15px;
   height: 35px;
   border: 1px solid lightgreen;
+  
 }
 
 button {
