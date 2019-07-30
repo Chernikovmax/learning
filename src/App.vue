@@ -1,46 +1,15 @@
 <template>
   <div id="app">
-    <h2>Todo List</h2>
-    <AddingForm
-      @add-todo="addTodo"
-    />
-    <ToDoList :todos="todos" @remove-task="removeTodo" />
+    <Header/>
+    <router-view/>
   </div>
 </template>
-
 <script>
-import ToDoList from "@/components/ToDoList";
-import AddingForm from "@/components/AddingForm";
+import Header from '@/components/Header';
 export default {
-  name: "app",
-  data() {
-    return {
-      todos: [
-
-      ]
-    };
-  },
-  mounted() {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then(result => result.json())
-      .then(data => this.todos = [...data])
-  },
   components: {
-    ToDoList,
-    AddingForm,
-  },
-  methods: {
-    removeTodo,
-    addTodo,
+    Header,
   }
-};
-
-function removeTodo(taskId) {
-  this.todos = this.todos.filter(todo => todo.id !== taskId);
-}
-
-function addTodo(newTask) {
-  return this.todos.push(newTask);
 }
 </script>
 
@@ -55,12 +24,16 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 10px;
 }
 </style>
