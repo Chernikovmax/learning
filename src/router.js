@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import AllTodos from "./views/AllTodos";
-import CurrentTodos from "./views/CurrentTodos.vue";
+import ActiveTodos from "./views/ActiveTodos";
 import DoneTodos from "./views/DoneTodos";
 
 Vue.use(Router);
@@ -14,8 +14,8 @@ export default new Router({
       component: AllTodos
     },
     {
-      path: "/current-todos",
-      component: CurrentTodos
+      path: "/active-todos",
+      component: ActiveTodos
     },
     {
       path: "/done-todos",

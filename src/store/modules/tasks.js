@@ -41,7 +41,7 @@ export default {
     allTasks(state) {
       return state.todos;
     },
-    currentTasks(state) {
+    activeTasks(state) {
       return state.todos.filter(task => !task.completed);
     },
     doneTasks(state) {

@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <Header/>
-    <router-view
-      :todos="allTasks"
-      :loading="fetchingStatus"
-    />
+    <Header />
+    <AddingForm />
+    <router-view :todos="allTasks" :loading="fetchingStatus" />
   </div>
 </template>
 <script>
-import Header from '@/components/Header';
-import { mapGetters, mapActions } from 'vuex';
+import Header from "@/components/Header";
+import AddingForm from "@/components/AddingForm";
+import { mapGetters, mapActions } from "vuex";
 export default {
   computed: mapGetters(["allTasks", "fetchingStatus"]),
   methods: mapActions(["fetchTasks"]),
   components: {
     Header,
+    AddingForm
   },
   mounted() {
-    this.fetchTasks();    
-  },
-}
+    this.fetchTasks();
+  }
+};
 </script>
 
 <style>

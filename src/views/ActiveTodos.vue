@@ -1,8 +1,8 @@
 <template>
   <Loader v-if="loading" />
-  <div v-else-if="doneTasks.length">
-    <h2>Done Todos</h2>
-    <ToDoList :todos="doneTasks"/>
+  <div v-else-if="activeTasks.length">
+    <h2>Active Todos</h2>
+    <ToDoList :todos="activeTasks"/>
   </div>
   <div v-else class="no-tasks">
     <div class="no-tasks__block">
@@ -14,11 +14,10 @@
 <script>
 import Loader from "@/components/Loader";
 import ToDoList from "@/components/ToDoList";
-import { mapGetters } from "vuex";
-
+import { mapGetters } from 'vuex';
 export default {
   name: "app",
-  computed: mapGetters(["doneTasks"]),
+  computed: mapGetters(["activeTasks"]),
   props: ["todos", "loading"],
   components: {
     Loader,

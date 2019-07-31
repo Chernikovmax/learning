@@ -9,28 +9,27 @@
       />
       <label :for="'check-' + todo.id">{{todo.title | upperCase}}</label>
     </span>
-    <button 
-      class="todo__task-btn"
-      @click="deleteCurrentTask(todo.id)"
-    >
-      &times;
+    <button class="todo__task-btn" @click="deleteCurrentTask(todo.id)">
+      <DeleteBucketIcon />
     </button>
   </li>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
+import DeleteBucketIcon from "@/components/icons/DeleteBucketIcon";
 export default {
   props: {
     todo: {
       type: Object,
       required: true
-    },
+    }
   },
   methods: {
     ...mapActions(["deleteTask"]),
-    deleteCurrentTask,
+    deleteCurrentTask
   },
+  components: {DeleteBucketIcon},
   filters: {
     upperCase(text) {
       if (text.trim()) {
@@ -56,7 +55,7 @@ function deleteCurrentTask(taskId) {
   padding: 10px 20px;
   background-color: #fff;
   box-shadow: 3px 0 5px 0 gray;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .todo__task:hover {
@@ -81,12 +80,15 @@ function deleteCurrentTask(taskId) {
 }
 
 .todo__task-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 50px;
   border-radius: 50%;
   border: none;
-  background-color: tomato;
-  width: 20px;
-  height: 20px;
+  background-color: #eb8675;
+  width: 30px;
+  height: 30px;
   font-weight: bold;
   font-size: 14px;
   text-align: center;
