@@ -56,6 +56,12 @@ function deleteCurrentTask(taskId) {
   padding: 10px 20px;
   background-color: #fff;
   box-shadow: 3px 0 5px 0 gray;
+  transition: all .3s;
+}
+
+.todo__task:hover {
+  transform: translateX(-5px);
+  box-shadow: 8px 0 7px 0 gray;
 }
 
 .todo__task-text {
