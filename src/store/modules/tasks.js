@@ -9,12 +9,19 @@ export default {
       ctx.commit("updateTasks", tasks);
     },
 
+    passTheTask(ctx, task) {
+        ctx.commit("addNewTask", task);
+    }
   },
   mutations: {
     updateTasks(state, tasks) {
       state.todos = tasks;
       state.loading = false;
+    },
+    addNewTask(state, task) {
+        state.todos.unshift(task);
     }
+
   },
   state: {
     todos: [],
