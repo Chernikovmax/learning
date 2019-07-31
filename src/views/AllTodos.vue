@@ -3,7 +3,7 @@
   <div v-else-if="todos.length">
     <h2>All Todos</h2>
     <AddingForm />
-    <ToDoList :todos="todos" @remove-task="removeTodo" />
+    <ToDoList :todos="todos" />
   </div>
   <div v-else class="no-tasks">
     <div class="no-tasks__block">
@@ -18,20 +18,13 @@ import AddingForm from "@/components/AddingForm";
 import Loader from "@/components/Loader";
 export default {
   name: "app",
-  props: ["todos", "loading"],
+  props: ["todos", "loading",],
   components: {
     Loader,
     ToDoList,
     AddingForm,
-  },
-  methods: {
-    removeTodo,
   }
 };
-
-function removeTodo(taskId) {
-  this.todos = this.todos.filter(todo => todo.id !== taskId);
-}
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@
   <div v-else-if="doneTasks.length">
     <h2>Done Todos</h2>
     <AddingForm />
-    <ToDoList :todos="doneTasks" @remove-task="removeTodo" />
+    <ToDoList :todos="doneTasks"/>
   </div>
   <div v-else class="no-tasks">
     <div class="no-tasks__block">
@@ -27,12 +27,5 @@ export default {
     ToDoList,
     AddingForm,
   },
-  methods: {
-    removeTodo,
-  }
 };
-
-function removeTodo(taskId) {
-  this.todos = this.todos.filter(todo => todo.id !== taskId);
-}
 </script>

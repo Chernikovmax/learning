@@ -11,6 +11,10 @@ export default {
 
     passTheTask(ctx, task) {
         ctx.commit("addNewTask", task);
+    },
+
+    deleteTask(ctx, taskId) {
+        ctx.commit("taskRemoving", taskId);
     }
   },
   mutations: {
@@ -20,7 +24,10 @@ export default {
     },
     addNewTask(state, task) {
         state.todos.unshift(task);
-    }
+    },
+    taskRemoving(state, taskId) {
+        state.todos = state.todos.filter(task => task.id !== taskId);
+    },
 
   },
   state: {

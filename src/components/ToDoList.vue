@@ -4,7 +4,6 @@
       v-for="todo in todos"
       :todo="todo"
       :key="todo.id"
-      @remove-task="removeTodo"
     />
   </ul>
 </template>
@@ -17,14 +16,7 @@ export default {
   components: {
     ToDoItem
   },
-  methods: {
-    removeTodo,
-  }
 };
-
-function removeTodo(taskId) {
-  this.$emit('remove-task', taskId);  
-}
 </script>
 
 <style scoped>
