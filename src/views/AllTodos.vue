@@ -1,6 +1,6 @@
 <template>
-  <Loader v-if="this.loading"/>
-  <div v-else-if="this.todos.length">
+  <Loader v-if="loading"/>
+  <div v-else-if="todos.length">
     <h2>All Todos</h2>
     <AddingForm @add-todo="addTodo" />
     <ToDoList :todos="todos" @remove-task="removeTodo" />
@@ -18,20 +18,7 @@ import AddingForm from "@/components/AddingForm";
 import Loader from "@/components/Loader";
 export default {
   name: "app",
-  data() {
-    return {
-      todos: [],
-      loading: true
-    };
-  },
-  mounted() {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then(result => result.json())
-      .then(data => {
-        this.todos = [...data];
-        return (this.loading = false);
-      });
-  },
+  props: ["todos", "loading"],
   components: {
     Loader,
     ToDoList,
