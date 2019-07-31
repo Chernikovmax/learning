@@ -1,15 +1,24 @@
 <template>
   <div id="app">
     <Header/>
-    <router-view/>
+    <router-view
+      :todos="allTasks"
+      :loading="fetchingStatus"
+    />
   </div>
 </template>
 <script>
 import Header from '@/components/Header';
+import { mapGetters, mapActions } from 'vuex';
 export default {
+  computed: mapGetters(["allTasks", "fetchingStatus"]),
+  methods: mapActions(["fetchTasks"]),
   components: {
     Header,
-  }
+  },
+  mounted() {
+    this.fetchTasks();    
+  },
 }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
-  <Loader v-if="this.loading"/>
-  <div v-else-if="this.todos.length">
+  <Loader v-if="loading"/>
+  <div v-else-if="todos.length">
     <h2>All Todos</h2>
-    <AddingForm @add-todo="addTodo" />
-    <ToDoList :todos="todos" @remove-task="removeTodo" />
+    <AddingForm />
+    <ToDoList :todos="todos" />
   </div>
   <div v-else class="no-tasks">
     <div class="no-tasks__block">
@@ -18,38 +18,13 @@ import AddingForm from "@/components/AddingForm";
 import Loader from "@/components/Loader";
 export default {
   name: "app",
-  data() {
-    return {
-      todos: [],
-      loading: true
-    };
-  },
-  mounted() {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then(result => result.json())
-      .then(data => {
-        this.todos = [...data];
-        return (this.loading = false);
-      });
-  },
+  props: ["todos", "loading",],
   components: {
     Loader,
     ToDoList,
     AddingForm,
-  },
-  methods: {
-    removeTodo,
-    addTodo
   }
 };
-
-function removeTodo(taskId) {
-  this.todos = this.todos.filter(todo => todo.id !== taskId);
-}
-
-function addTodo(newTask) {
-  return this.todos.push(newTask);
-}
 </script>
 
 <style scoped>

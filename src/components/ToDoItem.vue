@@ -10,8 +10,8 @@
       <label :for="'check-' + todo.id">{{todo.title | upperCase}}</label>
     </span>
     <button 
-      class="todo__task-btn" 
-      @click="$emit('remove-task', todo.id)"
+      class="todo__task-btn"
+      @click="deleteCurrentTask(todo.id)"
     >
       &times;
     </button>
@@ -19,12 +19,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   props: {
     todo: {
       type: Object,
       required: true
-    }
+    },
+  },
+  methods: {
+    ...mapActions(["deleteTask"]),
+    deleteCurrentTask,
   },
   filters: {
     upperCase(text) {
@@ -35,7 +40,9 @@ export default {
   }
 };
 
-
+function deleteCurrentTask(taskId) {
+  this.deleteTask(taskId);
+}
 </script>
 
 <style scoped>

@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -19,6 +20,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["passTheTask"]),
     onSubmit
   }
 };
@@ -33,7 +35,7 @@ function onSubmit() {
       completed: false
     };
   }
-  this.$emit("add-todo", newTask);
+  this.passTheTask(newTask)
   return (this.task = "");
 }
 </script>
